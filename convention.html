@@ -96,19 +96,22 @@
                             do amet sint. Velit officia consequat duis enim velit mollit. <br>
                             Exercitation veniam consequat sunt nostrud amet.
                         </p>
-                        <button class="btn btn-primary btn-lg mt-4"><a href="#"></a>Explore our album</button>
-                        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header  ">
-                                <img src="icons/ctor.svg" class="rounded me-2" alt="...">
-                                <strong class="me-auto">Bootstrap</strong>
-                                <small>11 mins ago</small>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="toast-body">
-                                Hello, world! This is a toast message.
+                        <div class="toast-container position-fixed bottom-0 end-0 p-3 ">
+                            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header">
+                                    <img src="icons/Vector.svg" class="rounded me-2" alt="">
+                                    <strong class="me-auto">Bootstrap</strong>
+                                    <small>11 mins ago</small>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body">
+                                    Hello, world! This is a toast message.
+                                </div>
                             </div>
                         </div>
+                        <button class="btn btn-primary btn-lg mt-4 " id="liveToastBtn"><a href="#"></a>Explore our
+                            album</button>
                     </div>
                 </div>
             </div>
@@ -158,10 +161,10 @@
                     </div>
                     <div class="col-md-3">
                         <div class="d-flex flex-column">
-                            <div class=" bg-primary border rounded py-4 px-3 me-4 rounded">
+                            <div class=" bg-primary border rounded-4 py-4 px-3 me-4 rounded position-relative">
                                 <h5 class="fw-bolde text-white mt-3 fs-2">$800
                                 </h5>
-                                <h6 class="mb-2 fw-bolder mt-3 fs-3">Business fair</h6>
+                                <h6 class="mb-2 fw-bolder mt-3 fs-3 text-white">Business fair</h6>
                                 <p class="text-white mt-3">For most businesses event like <br> book fair, craft
                                     fair.
                                 </p>
@@ -172,7 +175,12 @@
                                     <li class="list-group-item text-white">Decoration design</li>
                                     <li class="list-group-item text-white">Per day bil</li>
                                 </ul>
-                                <button class="btn btn-light btn-lg mt-3"><a href="#"></a>choose plan</button>
+                                <button class="btn btn-light btn-lg mt-3"><a href="#"></a>choose plan
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -245,6 +253,17 @@
 
 
     </main>
+    <script>
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+        if (toastTrigger) {
+            toastTrigger.addEventListener('click', () => {
+                const toast = new bootstrap.Toast(toastLiveExample)
+
+                toast.show()
+            })
+        }
+    </script>
     <script src="bootstrap/bootstrap.min.js"></script>
 </body>
 
